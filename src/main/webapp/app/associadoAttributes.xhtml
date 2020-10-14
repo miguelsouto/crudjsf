@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+
+<f:view contentType="text/html">
+        <h:head>
+            <f:facet name="first">
+                <meta content='text/html; charset=UTF-8' http-equiv="Content-Type"/>
+                <title>Incluir/Alterar Associado</title>
+            </f:facet>
+        </h:head>
+        <h:body>
+            <p:layout fullPage="true">
+                <p:layoutUnit position="north" size="70" resizable="true" closable="true" collapsible="true">
+                    <h:form>
+	                    <h:outputText value="Bem vindo(a) #{loginMBean.login.login}!" />
+	                    <br/>
+	                    <p:commandButton value="Logout" action="#{loginMBean.logout}" />
+                    </h:form> 
+                </p:layoutUnit>
+
+                <p:layoutUnit position="center">
+                	
+                	<h:form id="messages">
+					    <p:messages id="messages" showDetail="true" closable="true" />
+					</h:form>
+                	
+                    <h:form id="formulario">
+                        <p:panelGrid id="cadastro" columns="2" >
+                        	<p:outputLabel for="tipoAssociado" value="Tipo Associado: " />
+                        	<p:selectOneMenu id="tipoAssociado" value="#{associadoMBean.associado.tipoAssociado}" 
+                        					required="true" requiredMessage="Campo 'Tipo Associado' é obrigatório!" 
+                        					disabled="#{associadoMBean.associado.id ne null}">
+	                            <f:selectItem itemLabel="Selecione o tipo" />
+								<f:selectItems value="#{associadoMBean.tiposAssociados}" var="tipo" 
+									itemValue="#{tipo}" itemLabel="#{tipo.label}" />
+								<p:ajax event="change" process="@this" update="@form, messages" />	
+							</p:selectOneMenu>
+							
+                            <p:outputLabel for="nomeId" value="Nome: " />
+                           	<p:inputText id="nomeId" value="#{associadoMBean.associado.nome}" maxlength="50" required="true" equiredMessage="Campo 'Nome' é obrigatório!" />
+                            
+                            <p:outputLabel for="cpfId" value="CPF: " />
+                           	<p:inputMask id="cpfId" mask="999.999.999-99" value="#{associadoMBean.associado.cpf}" required="true" requiredMessage="Campo 'CPF' é obrigatório!" />
+                            
+                            <p:outputLabel for="rgId" value="RG: " />
+                           	<p:inputText id="rgId" value="#{associadoMBean.associado.rg}" maxlength="10" required="true" requiredMessage="Campo 'RG' é obrigatório!" />
+                            
+                            <p:outputLabel for="telefoneId" value="Telefone: " />
+                          	<p:inputMask id="telefoneId" mask="(99)99999-9999" value="#{associadoMBean.associado.telefone}" />
+                          	
+                          	<p:outputLabel for="enderecoId" value="Endereço: " />
+                          	<p:inputText id="enderecoId" maxlength="50" value="#{associadoMBean.associado.endereco}" />
+                            
+                            <p:outputLabel for="tipoBanco" value="Agência Bancária: " rendered="#{associadoMBean.associado.tipoAssociado == 'RESPONSAVEL'}" />
+                            <p:selectOneMenu id="tipoBanco" value="#{associadoMBean.contaBancaria.banco}" rendered="#{associadoMBean.associado.tipoAssociado == 'RESPONSAVEL'}" 
+                            				 required="#{associadoMBean.associado.tipoAssociado == 'RESPONSAVEL'}" requiredMessage="O campo 'Agência Bancária' é obrigatório para associados do tipo Responsável." >
+	                            <f:selectItem itemLabel="Selecione o banco" />
+								<f:selectItems value="#{associadoMBean.bancos}" var="tipo" 
+									itemValue="#{tipo}" itemLabel="#{tipo.label}" />
+							</p:selectOneMenu>
+                            
+							<p:outputLabel for="numeroContaId" value="Numero da Conta:" rendered="#{associadoMBean.associado.tipoAssociado == 'RESPONSAVEL'}" />
+							<p:inputMask id="numeroContaId" mask="9999-9" value="#{associadoMBean.contaBancaria.numero}" rendered="#{associadoMBean.associado.tipoAssociado == 'RESPONSAVEL'}" 
+										required="#{associadoMBean.associado.tipoAssociado == 'RESPONSAVEL'}" requiredMessage="O campo 'Número da Conta' é obrigatório para associados do tipo Responsável." />
+                            
+							<p:outputLabel for="agenciaId" value="Agência: " rendered="#{associadoMBean.associado.tipoAssociado == 'RESPONSAVEL'}" />
+                           	<p:inputText id="agenciaId" value="#{associadoMBean.contaBancaria.agencia}" rendered="#{associadoMBean.associado.tipoAssociado == 'RESPONSAVEL'}" 
+                           				required="#{associadoMBean.associado.tipoAssociado == 'RESPONSAVEL'}" requiredMessage="O campo 'Agência' é obrigatório para associados do tipo Responsável." />
+                            
+                            <p:outputLabel for="operacaoId" value="Operação: " rendered="#{associadoMBean.associado.tipoAssociado == 'RESPONSAVEL'}" />
+                           	<p:inputText id="operacaoId" value="#{associadoMBean.contaBancaria.operacao}" rendered="#{associadoMBean.associado.tipoAssociado == 'RESPONSAVEL'}" 
+                           				required="#{associadoMBean.associado.tipoAssociado == 'RESPONSAVEL'}" requiredMessage="O campo 'Operação' é obrigatório para associados do tipo Responsável." />
+                            
+							<p:outputLabel id="responsavelLabel" value="Responsável: " for="responsavelAutocomplete" rendered="#{associadoMBean.associado.tipoAssociado == 'DEPENDENTE'}" />
+       						<p:autoComplete id="responsavelAutocomplete" value="#{associadoMBean.associado.responsavel}" completeMethod="#{associadoMBean.findResponsaveis()}" 
+       									var="responsavel" itemLabel="#{responsavel.nome}" itemValue="#{responsavel}" converter="associadoConverter" 
+       									minQueryLength="0" size="30" queryDelay="0" dropdown="true" scrollHeight="200" rendered="#{associadoMBean.associado.tipoAssociado == 'DEPENDENTE'}"
+       									required="#{associadoMBean.associado.tipoAssociado == 'DEPENDENTE'}" requiredMessage="Campo 'Responsável' é obrigatório para associados do tipo Dependente." />
+                        </p:panelGrid>
+                        <p:commandButton value="Salvar" update="formulario, messages" action="#{associadoMBean.salvar}" />
+                        <p:commandButton value="Voltar" action="#{associadoMBean.voltar}" immediate="true" />                    
+                    </h:form>
+                </p:layoutUnit>
+            </p:layout>
+        </h:body>
+    </f:view>
+
+</html>

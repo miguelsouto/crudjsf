@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+
+        <h:head>
+        </h:head>
+        <h:body>     
+         	<p:dialog visible="true" width="400" height="500" header="Acessar o Sistema"  closable="false" modal="true" appendTo="@(body)" resizable="false"> 
+	           	<h:panelGrid style="margin: 0 auto;"><h:outputText styleClass="fa fa-lock fa-5x"/></h:panelGrid>
+	               <h:form id="formulario">
+	               		<h:panelGrid id="login" cellpadding="10" >
+		               		<p:messages id="messagesLogin"/>
+		               		<p:inputText placeholder="Usuário" value="#{loginMBean.login.login}" size="20" required="true" requiredMessage="Campo Login é obrigatório"/>
+		               		<p:password placeholder="Senha" value="#{loginMBean.login.senha}" size="20" required="true" requiredMessage="Campo Senha é obrigatório"/>
+		                    <p:commandButton value="Login" update="messagesLogin" action="#{loginMBean.logar()}" />
+	                   </h:panelGrid>
+	               </h:form>
+              </p:dialog>
+        </h:body>
+
+</html>

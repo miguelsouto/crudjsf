@@ -1,0 +1,13 @@
+/home/miguel/workspace/demos/crudjsf/src/main/java/com/crudjsf/domain/model/Login.java
+/home/miguel/workspace/demos/crudjsf/src/main/java/com/crudjsf/domain/model/HibernateSession.java
+/home/miguel/workspace/demos/crudjsf/src/main/java/com/crudjsf/domain/filter/LoginAuth.java
+/home/miguel/workspace/demos/crudjsf/src/main/java/com/crudjsf/domain/model/ContaBancaria.java
+/home/miguel/workspace/demos/crudjsf/src/main/java/com/crudjsf/domain/repository/AssociadoDao.java
+/home/miguel/workspace/demos/crudjsf/src/main/java/com/crudjsf/domain/model/Banco.java
+/home/miguel/workspace/demos/crudjsf/src/main/java/com/crudjsf/domain/controller/LoginMBean.java
+/home/miguel/workspace/demos/crudjsf/src/main/java/com/crudjsf/domain/model/Associado.java
+/home/miguel/workspace/demos/crudjsf/src/main/java/com/crudjsf/domain/controller/AssociadoMBean.java
+/home/miguel/workspace/demos/crudjsf/src/main/java/com/crudjsf/domain/util/AssociadoConverter.java
+/home/miguel/workspace/demos/crudjsf/src/main/java/com/crudjsf/domain/model/TipoAssociado.java
+/home/miguel/workspace/demos/crudjsf/src/main/java/com/crudjsf/domain/filter/AppAuth.java
+/home/miguel/workspace/demos/crudjsf/src/main/java/com/crudjsf/domain/repository/LoginDao.java

@@ -1,0 +1,13 @@
+com/crudjsf/domain/util/AssociadoConverter.class
+com/crudjsf/domain/filter/AppAuth.class
+com/crudjsf/domain/controller/AssociadoMBean.class
+com/crudjsf/domain/model/Banco.class
+com/crudjsf/domain/model/ContaBancaria.class
+com/crudjsf/domain/model/Associado.class
+com/crudjsf/domain/repository/LoginDao.class
+com/crudjsf/domain/model/Login.class
+com/crudjsf/domain/repository/AssociadoDao.class
+com/crudjsf/domain/controller/LoginMBean.class
+com/crudjsf/domain/model/HibernateSession.class
+com/crudjsf/domain/model/TipoAssociado.class
+com/crudjsf/domain/filter/LoginAuth.class

@@ -26,9 +26,9 @@
 
                 <p:layoutUnit position="center">
                 	
-                	<h:form id="messages">
-					    <p:messages id="messages" showDetail="true" closable="true" />
-					</h:form>
+		    <h:form id="messages">
+		    	<p:messages id="messages" showDetail="true" closable="true" />
+		    </h:form>
                     <h:form id="formulario">
                     	<p:commandButton value="Adicionar Associado" action="#{associadoMBean.insert}"/>
                         <p:panel id="listagem" header="Listagem">
@@ -38,7 +38,7 @@
 	                            </p:column>
 	                            <p:column headerText="Nome" filterBy="#{associado.nome}"> 
 	                                    <p:outputLabel value="#{associado.nome}"/> 
-                                </p:column>
+                                    </p:column>
 	                            <p:column headerText="RG" filterBy="#{associado.rg}"> 
 	                                    <p:outputLabel value="#{associado.rg}"/> 
 	                            </p:column>
@@ -51,18 +51,18 @@
 	                            <p:column headerText="Responsável" filterBy="#{associado.responsavel.nome}"> 
 	                                    <p:outputLabel value="#{associado.responsavel.nome}"/> 
 	                            </p:column>
-                                <p:column headerText="Opções" width="300">
-                                    <p:commandButton value="Editar"  action="#{associadoMBean.update()}" 
-                                    					style="width: 80px; height:50px; text-align: center" >
-                                        <f:setPropertyActionListener target="#{associadoMBean.associado}" value="#{associado}" />      
-                                    </p:commandButton>
-                                    <p:commandButton value="Remover" process="@this" update="messages, formulario" style="width: 100px; height:50px; text-align: center"
-                                                     action="#{associadoMBean.remover(associado)}">
-                                    </p:commandButton>
-                                    <p:commandButton update=":formulario:associadoDetail" onclick="PF('associadoDialog').show();" value="Detalhes" style="width: 100px; height:50px; text-align: center">
-                                    	<f:setPropertyActionListener value="#{associado}" target="#{associadoMBean.associado}" />
-                                    </p:commandButton>
-	                                </p:column>
+                                    <p:column headerText="Opções" width="300">
+					    <p:commandButton value="Editar"  action="#{associadoMBean.update()}" 
+										style="width: 80px; height:50px; text-align: center" >
+						<f:setPropertyActionListener target="#{associadoMBean.associado}" value="#{associado}" />      
+					    </p:commandButton>
+					    <p:commandButton value="Remover" process="@this" update="messages, formulario" style="width: 100px; height:50px; text-align: center"
+							     action="#{associadoMBean.remover(associado)}">
+					    </p:commandButton>
+					    <p:commandButton update=":formulario:associadoDetail" onclick="PF('associadoDialog').show();" value="Detalhes" style="width: 100px; height:50px; text-align: center">
+						<f:setPropertyActionListener value="#{associado}" target="#{associadoMBean.associado}" />
+					    </p:commandButton>
+				    </p:column>
                             </p:dataTable>
                         </p:panel>                        
                         <p:dialog id="associadoDialog" header="Associado" widgetVar="associadoDialog" modal="true" appendTo="@(body)" minHeight="40" >

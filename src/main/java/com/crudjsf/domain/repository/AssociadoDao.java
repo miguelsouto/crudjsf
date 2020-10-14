@@ -27,7 +27,7 @@ public class AssociadoDao {
     }
 
     @SuppressWarnings("unchecked")
-	public List<Associado> listar(){    
+    public List<Associado> listar(){    
 		List<Associado> associado = session.createQuery("from Associado").getResultList();
         session.close();
         return associado;
@@ -40,7 +40,7 @@ public class AssociadoDao {
         session.close();
     }
     
-	public List<Associado> findResponsaveis(){
+    public List<Associado> findResponsaveis(){
     	CriteriaBuilder builder = session.getCriteriaBuilder();
         CriteriaQuery<Associado> criteriaQuery = builder.createQuery(Associado.class);
         Root<Associado> associadoModel = criteriaQuery.from(Associado.class);
@@ -50,7 +50,7 @@ public class AssociadoDao {
         return associadosResult;
     }
     
-	public List<Associado> findByName(String nome){
+    public List<Associado> findByName(String nome){
         CriteriaBuilder builder = session.getCriteriaBuilder();
         CriteriaQuery<Associado> criteriaQuery = builder.createQuery(Associado.class);
         Root<Associado> associadoModel = criteriaQuery.from(Associado.class);

@@ -66,46 +66,46 @@
                             </p:dataTable>
                         </p:panel>                        
                         <p:dialog id="associadoDialog" header="Associado" widgetVar="associadoDialog" modal="true" appendTo="@(body)" minHeight="40" >
-                        	<p:outputPanel id="associadoDetail" style="text-align:center;">
-						    	<h:outputText value="Detalhes do Associado selecionado:"/>
-						    	<h:panelGrid id="panelAssociado" columns="2" cellpadding="5">
-						    		<h:outputText value="Tipo: "/>
-						    		<h:outputText value="#{associadoMBean.associado.tipoAssociado.label}"/>
-						    		<h:outputText value="Nome: "/>
-						    		<h:outputText value="#{associadoMBean.associado.nome}"/>
-						    		<h:outputText value="CPF: "/>
-						    		<h:outputText value="#{associadoMBean.associado.cpf}"/>
-						    		<h:outputText value="RG: "/>
-						    		<h:outputText value="#{associadoMBean.associado.rg}"/>
-						    		<h:outputText value="Telefone: "/>
-						    		<h:outputText value="#{associadoMBean.associado.telefone}"/>
-						    		<h:outputText value="Endereço: "/>
-						    		<h:outputText value="#{associadoMBean.associado.endereco}"/>
-						    		<h:outputText value="Banco: "/>
-						    		<h:outputText value="#{associadoMBean.associado.contaBancaria.banco.label}"/>
-						    		<h:outputText value="Numero: "/>
-						    		<h:outputText value="#{associadoMBean.associado.contaBancaria.numero}"/>
-						    		<h:outputText value="Agência: "/>
-						    		<h:outputText value="#{associadoMBean.associado.contaBancaria.agencia}"/>
-						    		<h:outputText value="Operação: "/>
-						    		<h:outputText value="#{associadoMBean.associado.contaBancaria.operacao}"/>
-						    	</h:panelGrid>
-					    	</p:outputPanel>
-						</p:dialog>            
+				<p:outputPanel id="associadoDetail" style="text-align:center;">
+					<h:outputText value="Detalhes do Associado selecionado:"/>
+					<h:panelGrid id="panelAssociado" columns="2" cellpadding="5">
+						<h:outputText value="Tipo: "/>
+						<h:outputText value="#{associadoMBean.associado.tipoAssociado.label}"/>
+						<h:outputText value="Nome: "/>
+						<h:outputText value="#{associadoMBean.associado.nome}"/>
+						<h:outputText value="CPF: "/>
+						<h:outputText value="#{associadoMBean.associado.cpf}"/>
+						<h:outputText value="RG: "/>
+						<h:outputText value="#{associadoMBean.associado.rg}"/>
+						<h:outputText value="Telefone: "/>
+						<h:outputText value="#{associadoMBean.associado.telefone}"/>
+						<h:outputText value="Endereço: "/>
+						<h:outputText value="#{associadoMBean.associado.endereco}"/>
+						<h:outputText value="Banco: "/>
+						<h:outputText value="#{associadoMBean.associado.contaBancaria.banco.label}"/>
+						<h:outputText value="Numero: "/>
+						<h:outputText value="#{associadoMBean.associado.contaBancaria.numero}"/>
+						<h:outputText value="Agência: "/>
+						<h:outputText value="#{associadoMBean.associado.contaBancaria.agencia}"/>
+						<h:outputText value="Operação: "/>
+						<h:outputText value="#{associadoMBean.associado.contaBancaria.operacao}"/>
+					</h:panelGrid>
+				</p:outputPanel>
+			</p:dialog>            
                     </h:form>
                     <p:dialog id="loginDialog" header="Criar novo login" widgetVar="loginDialog" modal="true" appendTo="@(body)" minHeight="40" >
-                        	<h:form id="formInsertLogin">
-	                        	<p:outputPanel id="newLogin" style="text-align:center;">
-							    	<h:panelGrid id="panelLogin" columns="2" cellpadding="5">
-							    		<h:outputLabel for="usuarioId" value="Novo usuário: "/>
-							    		<h:inputText id="usuarioId" value="#{loginMBean.novoLogin.login}" required="true" />
-							    		<h:outputLabel for="senhaId" value="Senha: "/>
-							    		<h:inputText id="senhaId" value="#{loginMBean.novoLogin.senha}" required="true" />
-							    		<p:commandButton id="insertLogin" value="Cadastrar login" update="formulario, messages" action="#{loginMBean.salvar}" immediate="true"/>
-							    	</h:panelGrid>	
-						    	</p:outputPanel>
-						    </h:form>
-						</p:dialog>         
+			<h:form id="formInsertLogin">
+				<p:outputPanel id="newLogin" style="text-align:center;">
+					<h:panelGrid id="panelLogin" columns="2" cellpadding="5">
+						<h:outputLabel for="usuarioId" value="Novo usuário: "/>
+						<h:inputText id="usuarioId" value="#{loginMBean.novoLogin.login}" required="true" />
+						<h:outputLabel for="senhaId" value="Senha: "/>
+						<h:inputText id="senhaId" value="#{loginMBean.novoLogin.senha}" required="true" />
+						<p:commandButton id="insertLogin" value="Cadastrar login" update="formulario, messages" action="#{loginMBean.salvar}" immediate="true"/>
+					</h:panelGrid>	
+				</p:outputPanel>
+		    	</h:form>
+		    </p:dialog>         
                 </p:layoutUnit>
             </p:layout>
         </h:body>
